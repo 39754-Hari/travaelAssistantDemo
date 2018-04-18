@@ -90,7 +90,7 @@ alexaApp.intent('DestinationIntent', function (request, response) {
 
 alexaApp.intent('TravelMonthIntent', function (request, response) {
     travelMonth = request.data.request.intent.slots.travelMonth.value;
-     var speesaychOutput = ['<s>Please share length of trip</s>'];
+     var say = ['<s>Please share length of trip</s>'];
      say.push ('<s><break strength=\"medium\" /> 1 to 7 days</s>');
      say.push('<s><break strength=\"medium\" /> 8 to 14 days</s>');
      say.push('<s><break strength=\"medium\" /> more than 14 days</s>');
