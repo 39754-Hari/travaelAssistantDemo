@@ -81,7 +81,7 @@ alexaApp.intent('TourPackageIntent', function (request, response) {
 });
 
 alexaApp.intent('DestinationIntent', function (request, response) {
-     destination = this.event.request.intent.slots.destination.value;
+     destination = request.data.request.intent.slots.destination.value;
      var say = ['<s>Which is your month of travel?</s>'];
      console.log("destination is"+destination+"  Speech output: " + say);
     response.shouldEndSession(false);
@@ -89,7 +89,7 @@ alexaApp.intent('DestinationIntent', function (request, response) {
 });
 
 alexaApp.intent('TravelMonthIntent', function (request, response) {
-    travelMonth = this.event.request.intent.slots.travelMonth.value;
+    travelMonth = request.data.request.intent.slots.travelMonth.value;
      var speesaychOutput = ['<s>Please share length of trip</s>'];
      say.push ('<s><break strength=\"medium\" /> 1 to 7 days</s>');
      say.push('<s><break strength=\"medium\" /> 8 to 14 days</s>');
@@ -100,7 +100,7 @@ alexaApp.intent('TravelMonthIntent', function (request, response) {
 });
 
 alexaApp.intent('TravelDurationIntent', function (request, response) {
-    travelDuration = this.event.request.intent.slots.travelDuration.value;
+    travelDuration = request.data.request.intent.slots.travelDuration.value;
     var say=['<s>Please share per person price range for package for the trip?</s>'];        
     console.log("travelDuration is"+travelDuration+"  Speech output: " + say);        
         response.shouldEndSession(false);
@@ -108,7 +108,7 @@ alexaApp.intent('TravelDurationIntent', function (request, response) {
 });
 
 alexaApp.intent('PriceRangeIntent', function (request, response) {
-    priceRange = this.event.request.intent.slots.priceRange.value;
+    priceRange = request.data.request.intent.slots.priceRange.value;
     var say = ['<s>There are 12 packages available in that price range.</s><s>Shall I send the details to your email ID?</s>'];        
     console.log("priceRange is"+priceRange+"  Speech output: " + say);     
     response.shouldEndSession(false);
