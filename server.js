@@ -22,7 +22,7 @@ var locale = '';
 var TourPackageIntentInvoked = false;
 var destination ='';
 var travelMonth = '';
-var travelDuration = '';
+var tripLength = '';
 var priceRange = '';
 
 
@@ -100,9 +100,9 @@ alexaApp.intent('TravelMonthIntent', function (request, response) {
 });
 
 alexaApp.intent('TravelDurationIntent', function (request, response) {
-    travelDuration = request.data.request.intent.slots.travelDuration.value;
+    tripLength = request.data.request.intent.slots.tripLength.value;
     var say=['<s>Please share per person price range for package for the trip?</s>'];        
-    console.log("travelDuration is"+travelDuration+"  Speech output: " + say);        
+    console.log("tripLength is"+tripLength+"  Speech output: " + say);        
         response.shouldEndSession(false);
         response.say(say.join('\n'));
 });
