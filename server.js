@@ -104,7 +104,7 @@ alexaApp.intent('TripLengthIntent', function (request, response) {
     tripLengthStart = request.data.request.intent.slots.tripLengthStart.value;
     tripLengthEnd = request.data.request.intent.slots.tripLengthEnd.value;    
     var say=['<s>Please share per person price range for package for the trip?</s>'];        
-    console.log("tripLength is "+tripLengthStart+ "to"+tripLengthStart+".and   Speech output: " + say);        
+    console.log("tripLength is "+tripLengthStart+ "to"+tripLengthEnd+".and   Speech output: " + say);        
         response.shouldEndSession(false);
         response.say(say.join('\n'));
 });
