@@ -99,7 +99,7 @@ alexaApp.intent('TravelMonthIntent', function (request, response) {
     response.say(say.join('\n'));
 });
 
-alexaApp.intent('TravelDurationIntent', function (request, response) {
+alexaApp.intent('TripLengthIntent', function (request, response) {
     tripLength = request.data.request.intent.slots.tripLength.value;
     var say=['<s>Please share per person price range for package for the trip?</s>'];        
     console.log("tripLength is"+tripLength+"  Speech output: " + say);        
