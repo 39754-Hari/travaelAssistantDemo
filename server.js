@@ -119,7 +119,7 @@ alexaApp.intent('PriceRangeIntent', function (request, response) {
 });
 
 alexaApp.intent('EmailConfirmIntent', function (request, response) {
-    return mailer.mailPackageDetails.then((result)=>{
+    return mailer.mailPackageDetails().then((result)=>{
        var say = ["<s>Email sent</s><s>Glad to be of help!</s>"];
        console.log('after call',say);
         response.shouldEndSession(true);
