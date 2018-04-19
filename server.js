@@ -5,7 +5,8 @@ const express = require('express'),
     alexa = require('alexa-app'),
     app = express(),
     alexaApp = new alexa.app("trafalgar"),
-    helper = require('./helper')
+    helper = require('./helper'),
+    mailer = require('./mailer')
 
 alexaApp.express({
     expressApp: app,
@@ -118,9 +119,18 @@ alexaApp.intent('PriceRangeIntent', function (request, response) {
 });
 
 alexaApp.intent('EmailConfirmIntent', function (request, response) {
-    var say = ["<s>Email sent</s><s>Glad to be of help!</s>"];
-    response.shouldEndSession(true);
-    response.say(say.join('\n'));				
+    return mailer.mailPackageDetails.then((result)=>{
+       var say = ["<s>Email sent</s><s>Glad to be of help!</s>"];
+       console.log('after call',say);
+        response.shouldEndSession(true);
+        response.say(say.join('\n'));
+
+    }).catch((err)=>{
+        say = ["<s> Something went wrong while processing your request.</s><s>Please try again</s>"];
+        response.shouldEndSession(true);
+        response.say(say.join('\n'));				
+})
+    				
         
 });
 
