@@ -76,6 +76,7 @@ alexaApp.launch(function (request, response) {
 });
 
 alexaApp.intent('TourPackageIntent', function (request, response) {
+    resetAll();
     TourPackageIntentInvoked = true;
     var say = ['<s>Sure,<break strength=\"medium\" /> May I know where are you travelling to?</s>'];  
     response.shouldEndSession(false);
@@ -129,9 +130,14 @@ alexaApp.intent('EmailConfirmIntent', function (request, response) {
         say = ["<s> Something went wrong while processing your request.</s><s>Please try again</s>"];
         response.shouldEndSession(true);
         response.say(say.join('\n'));				
-})
-    				
-        
+})      
+});
+
+alexaApp.intent('EmailCancelIntent', function (request, response) {
+    var say = ['<s>okay<break strength=\"medium\" />you can get them later</s>'];        
+    console.log("priceRange is"+priceRange+"  Speech output: " + say);     
+    response.shouldEndSession(false);
+    response.say(say.join('\n'));
 });
 
 alexaApp.intent('rentalConfirmIntent', function (request, response) {
@@ -232,15 +238,13 @@ function getRentalConfirmation(startDate,callback){
 }*/
 
 function resetAll(){
-    claimStatusIntentCalled = false;
-    rentalCarIntentCalled = false;
-    repairPaymentIntentCalled = false;
-    claimIdPresent = false;
-    rentalStartDate = '';
-    rentalDays = '';
-    claimId = '';
     locale = '';
-    claimPaymentDetails = {};
+    TourPackageIntentInvoked = false;
+    destination ='';
+    travelMonth = '';
+    tripLengthStart = '';
+    tripLengthEnd = '';
+    priceRange = ''
 }
 
 alexaApp.intent('repairPaymentDetailsIntent', function (request, response) {
