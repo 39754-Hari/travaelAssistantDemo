@@ -78,7 +78,7 @@ function readModuleFile(path) {
 	return new Promise(function(resolve, reject){
     try {
         var filename = require.resolve(path);
-		var mail = fs.readFile(filename, 'utf8');
+		var mail = fs.readFileSync(filename, 'utf8');
 		console.log('in function',mail);
 		resolve(mail);
     } catch (e) {
