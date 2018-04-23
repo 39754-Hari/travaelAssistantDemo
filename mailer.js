@@ -74,7 +74,7 @@ mailPackageDetails:function(){
 }
 
 }
-function readModuleFile(path, callback) {
+function readModuleFile(path) {
 	return new Promise(function(resolve, reject){
     try {
         var filename = require.resolve(path);
