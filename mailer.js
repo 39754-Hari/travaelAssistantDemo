@@ -79,6 +79,7 @@ function readModuleFile(path) {
     try {
         var filename = require.resolve(path);
 		var mail = fs.readFile(filename, 'utf8');
+		console.log('in function',mail);
 		resolve(mail);
     } catch (e) {
         reject(e);
