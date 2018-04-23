@@ -46,6 +46,9 @@ mailPackageDetails:function(){
 				pass: 'a###W14&$'
 			}
 		});
+		readModuleFile('./mail.html', function (err, words) {
+			console.log(words);
+		});
 		
 		var mailOptions = {
 		  from: 'hexatestmailer@gmail.com',
@@ -69,6 +72,16 @@ mailPackageDetails:function(){
 }
 
 }
+function readModuleFile(path, callback) {
+    try {
+        var filename = require.resolve(path);
+        fs.readFile(filename, 'utf8', callback);
+    } catch (e) {
+        callback(e);
+    }
+}
+
+
 
 module.exports = mailer;
 
