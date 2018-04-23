@@ -94,9 +94,9 @@ alexaApp.intent('DestinationIntent', function (request, response) {
 alexaApp.intent('TravelMonthIntent', function (request, response) {
     travelMonth = request.data.request.intent.slots.travelMonth.value;
      var say = ['<s>Please share length of trip</s>'];
-     say.push ('<s><break strength=\"medium\" /> 1 to 7 days</s>');
-     say.push('<s><break strength=\"medium\" /> 8 to 14 days</s>');
-     say.push('<s><break strength=\"medium\" /> more than 14 days</s>');
+     //say.push ('<s><break strength=\"medium\" /> 1 to 7 days</s>');
+    // say.push('<s><break strength=\"medium\" /> 8 to 14 days</s>');
+     //say.push('<s><break strength=\"medium\" /> more than 14 days</s>');
      console.log("travelMonth is"+travelMonth+"  Speech output: " + say);
     response.shouldEndSession(false);
     response.say(say.join('\n'));
@@ -105,7 +105,7 @@ alexaApp.intent('TravelMonthIntent', function (request, response) {
 alexaApp.intent('TripLengthIntent', function (request, response) {
     tripLengthStart = request.data.request.intent.slots.tripLengthStart.value;
     tripLengthEnd = request.data.request.intent.slots.tripLengthEnd.value;    
-    var say=['<s>Please share per person price range for package for the trip?</s>'];        
+    var say=['<s>Please share per person price range for package for the trip in US dollars?</s>'];        
     console.log("tripLength is "+tripLengthStart+ "to"+tripLengthEnd+".and   Speech output: " + say);        
         response.shouldEndSession(false);
         response.say(say.join('\n'));
