@@ -9,7 +9,7 @@ mailPackageDetails:function(){
 			service: 'gmail',
 			auth: {
 				user: 'hexatestmailer@gmail.com',
-				pass: 'a###W14&$'
+				pass: 'Hexaware@987'
 			}
 		});
 		readModuleFile('./mail.html').then((words)=> {
